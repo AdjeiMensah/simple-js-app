@@ -19,11 +19,11 @@ let pokemonList = [
     
 
 function printdetails(pokemon) {
-    if(pokemonList.height>2){
-        document.write(pokemonList.name + " (height: " +pokemonList.height+") "+ "Wow, thats big!") ;
+    if(pokemon.height>2){
+        document.write(pokemon.name + " (height: " +pokemon.height+") "+ "Wow, thats big!") ;
     }
     else{
-        document.write(pokemonList.name + " (height: " +pokemonList.height+")" )
+        document.write(pokemon.name + " (height: " +pokemon.height+")" )
     }
 }
 pokemonRepository.getAll().forEach(printdetails);
