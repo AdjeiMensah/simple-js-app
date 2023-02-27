@@ -18,7 +18,7 @@ let pokemonList = [
       })();
     
 
-function print(pokemon) {
+function printdetails(pokemon) {
     if(pokemonList.height>2){
         document.write(pokemonList.name + " (height: " +pokemonList.height+") "+ "Wow, thats big!") ;
     }
@@ -26,4 +26,4 @@ function print(pokemon) {
         document.write(pokemonList.name + " (height: " +pokemonList.height+")" )
     }
 }
-pokemonRepository.getAll().forEach(print);
+pokemonRepository.getAll().forEach(printdetails);
