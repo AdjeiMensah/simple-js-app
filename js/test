@@ -1,0 +1,30 @@
+
+let pokemonRepository = (function () {
+let pokemonList = [
+    {name: 'Articuno', height: 1.7, types: ['Ice','Flying']},
+    {name: 'Snorlax', height: 2.1, types: ['normal']},
+    {name: 'Gengar', height: 1.5, types: ['Ghost','Poison']},
+
+];
+      
+        return {
+          add: function(pokemon) {
+            pokemonList.push(pokemon);
+          },
+          getAll: function() {
+            return pokemonList;
+          }
+        };
+      })();
+    
+
+function printdetails(pokemon) {
+let pokemonList = document.querySelector('.pokemon-list');
+let listItem = document.createElement('li');
+let button = document.createElement('button');
+button.innerText = pokemon.name
+button.classList.add("pokemon-button")
+pokemonlist.appendChild(button);
+
+}
+pokemonRepository.getAll().forEach(printdetails);
