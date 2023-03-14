@@ -2,7 +2,7 @@
 const pokemonRepository = (() => {
   // Declare an array of Pokemon objects
   const pokemonList = [];
-  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/' ;
+  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/';
 
   // Method for adding a new Pokemon to the array
   const add = (pokemon) => {
@@ -12,11 +12,6 @@ const pokemonRepository = (() => {
   // Method for getting all Pokemon in the array
   const getAll = () => {
     return pokemonList;
-  };
-
-  // Method for showing details of a Pokemon
-  const showDetails = (pokemon) => {
-    console.log(pokemon);
   };
 
   // Method for adding a new Pokemon to the list on the page
