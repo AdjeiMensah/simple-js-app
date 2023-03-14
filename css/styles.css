@@ -1,37 +1,45 @@
-
+/* Style for the Pokémon button */
 .pokemon-button {
-    background-color: #357b70;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    transition-duration: 0.4s;
+  /* Set background color, border, and text color */
+  background-color: #357b70;
+  border: none;
+  color: white;
+  /* Set padding, text alignment, and remove underline */
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  /* Set display and font size */
+  display: inline-block;
+  font-size: 16px;
+  /* Set margin and cursor */
+  margin: 10px;
+  cursor: pointer;
+  /* Set transition duration for smooth animation */
+  transition-duration: 0.4s;
 }
 
-/* For screens smaller than 600px */
+/* Media query for screens smaller than 600px */
 @media (max-width: 600px) {
-    .pokemon-button {
-      font-size: 14px;
-      padding: 10px 20px;
-    }
+  /* Decrease font size and padding for smaller screens */
+  .pokemon-button {
+    font-size: 14px;
+    padding: 10px 20px;
   }
-  
-  /* For screens larger than 600px */
-  @media (min-width: 600px) {
-    .pokemon-button {
-      font-size: 16px;
-      padding: 15px 32px;
-    }
-  }
+}
 
-  .pokemon-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+/* Media query for screens larger than 600px */
+@media (min-width: 600px) {
+  /* Increase font size and padding for larger screens */
+  .pokemon-button {
+    font-size: 16px;
+    padding: 15px 32px;
   }
-  
+}
+
+/* Style for the Pokémon list */
+.pokemon-list {
+  /* Remove list-style and margin */
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
