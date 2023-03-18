@@ -38,54 +38,56 @@ const pokemonRepository = (() => {
     pokemonListElement.appendChild(listItem);
   };
 
+  // Function for loading a list of Pokemon from the API
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (item) {
-        let pokemon = {
-          name: item.name,
-          detailsUrl: item.url,
-        };
-        add(pokemon);
-      });
-    }).catch(function (e) {
-      console.error(e);
-    });
-  }
-  function loadDetails(item) {
-    let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      // Now we add the details to the item
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types;
-    }).catch(function (e) {
-      console.error(e);
-    });
-  }
-  function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      console.log(pokemon);
-    });
+    return fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Loop through each item in the results array returned by the API
+        data.results.forEach(item => {
+          // Create a new Pokemon object with the name and details URL from the API
+          const pokemon = {
+            name: item.name,
+            detailsUrl: item.url,
+          };
+          // Add the Pokemon to the array
+          add(pokemon);
+        });
+      })
+      .catch(error => console.error(error));
   }
 
-  
-  // Return an object containing the add, getAll, and addListItem methods
+  // Function for loading the details of a specific Pokemon from its details URL
+  function loadDetails(pokemon) {
+    return fetch(pokemon.detailsUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Add additional properties to the Pokemon object based on the details returned by the API
+        pokemon.imageUrl = data.sprites.front_default;
+        pokemon.height = data.height;
+        pokemon.types = data.types;
+      })
+      .catch(error => console.error(error));
+  }
+
+  // Function for showing the details of a specific Pokemon in the console
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
+  // Return an object containing the add, getAll, and addListItem methods, as well as the loadList and loadDetails functions
   return {
     add,
     getAll,
     addListItem,
     loadList,
     loadDetails,
-
   };
 })();
 
-pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function(pokemon) {
+// Load the list of Pokemon from the API and add them to the page when the page finishes loading
+pokemonRepository.loadList().then(() => {
+  pokemonRepository.getAll().forEach(pokemon => {
     pokemonRepository.addListItem(pokemon);
   });
 });
