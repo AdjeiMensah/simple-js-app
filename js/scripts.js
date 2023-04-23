@@ -118,8 +118,20 @@ let pokemonRepository = (function () {
       addListItem(pokemon);
     });
   });
-  pokemonRepository.loadList().then(function() {
-    pokemonRepository.getAll().forEach(function(pokemon) {
-      pokemonRepository.addListItem(pokemon);
-    });
+// Return an object containing the add, getAll, and addListItem methods, as well as the loadList and loadDetails functions
+   return {
+    add,
+    getAll,
+    addListItem,
+    loadList,
+    loadDetails,
+  };
+
+})();
+
+// Load the list of Pokemon from the API and add them to the page when the page finishes loading
+pokemonRepository.loadList().then(() => {
+  pokemonRepository.getAll().forEach(pokemon => {
+    pokemonRepository.addListItem(pokemon);
   });
+});
